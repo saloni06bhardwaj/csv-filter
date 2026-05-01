@@ -1,0 +1,16 @@
+Name,Email,Age,Department,Salary,Status
+John Smith,john.smith@company.com,32,Engineering,85000,Active
+Sarah Johnson,sarah.j@company.com,28,Marketing,72000,Active
+Michael Brown,m.brown@company.com,45,Sales,95000,Active
+Emily Davis,emily.d@company.com,35,Engineering,88000,Active
+David Wilson,d.wilson@company.com,29,HR,65000,Active
+Lisa Anderson,lisa.a@company.com,41,Finance,92000,Active
+James Taylor,james.t@company.com,33,Engineering,87000,Inactive
+Jennifer Martinez,j.martinez@company.com,27,Marketing,68000,Active
+Robert Garcia,robert.g@company.com,38,Sales,91000,Active
+Mary Rodriguez,mary.r@company.com,31,Engineering,86000,Active
+William Lee,w.lee@company.com,44,Finance,98000,Active
+Patricia White,p.white@company.com,26,HR,62000,Active
+Christopher Harris,c.harris@company.com,36,Engineering,89000,Active
+Barbara Clark,barbara.c@company.com,30,Marketing,74000,Inactive
+Daniel Lewis,daniel.l@company.com,42,Sales,94000,Active
