@@ -253,24 +253,63 @@ export default function App() {
         position: chartType === 'pie' ? 'right' : 'top',
         labels: {
           color: theme === 'dark' ? '#f1f5f9' : '#0f172a',
-          font: { size: 12 }
-        }
+          font: { size: 11 },
+          boxWidth: 12,
+          padding: 8,
+          ...(chartType === 'pie' && chartLimit > 10 ? {
+            font: { size: 9 },
+            boxWidth: 10,
+            padding: 5
+          } : {})
+        },
+        ...(chartType === 'pie' && chartLimit > 10 ? {
+          maxHeight: 300,
+          display: true
+        } : {})
       },
       title: {
         display: true,
-        text: `${selectedChartColumn} Distribution`,
+        text: `${selectedChartColumn} Distribution (Top ${chartLimit})`,
         color: theme === 'dark' ? '#f1f5f9' : '#0f172a',
-        font: { size: 16, weight: 'bold' }
+        font: { size: 16, weight: 'bold' },
+        padding: { bottom: 20 }
+      },
+      tooltip: {
+        backgroundColor: theme === 'dark' ? '#1e293b' : '#ffffff',
+        titleColor: theme === 'dark' ? '#f1f5f9' : '#0f172a',
+        bodyColor: theme === 'dark' ? '#cbd5e1' : '#475569',
+        borderColor: theme === 'dark' ? '#334155' : '#e2e8f0',
+        borderWidth: 1,
+        padding: 12,
+        displayColors: true,
+        callbacks: {
+          label: function(context) {
+            const label = context.label || '';
+            const value = context.parsed.y || context.parsed || 0;
+            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+            const percentage = ((value / total) * 100).toFixed(1);
+            return `${label}: ${value} (${percentage}%)`;
+          }
+        }
       }
     },
     scales: chartType !== 'pie' ? {
       y: {
         beginAtZero: true,
-        ticks: { color: theme === 'dark' ? '#cbd5e1' : '#475569' },
+        ticks: { 
+          color: theme === 'dark' ? '#cbd5e1' : '#475569',
+          font: { size: 11 }
+        },
         grid: { color: theme === 'dark' ? '#334155' : '#e2e8f0' }
       },
       x: {
-        ticks: { color: theme === 'dark' ? '#cbd5e1' : '#475569' },
+        ticks: { 
+          color: theme === 'dark' ? '#cbd5e1' : '#475569',
+          font: { size: 10 },
+          maxRotation: 45,
+          minRotation: 45,
+          autoSkip: false
+        },
         grid: { color: theme === 'dark' ? '#334155' : '#e2e8f0' }
       }
     } : {}
@@ -450,14 +489,14 @@ export default function App() {
                       <option value={5}>5 items</option>
                       <option value={10}>10 items</option>
                       <option value={15}>15 items</option>
-                      <option value={20}>20 items</option>
+                      <option value={20}>20 items (larger chart)</option>
                     </select>
                   </div>
                 </div>
 
                 {selectedChartColumn && chartData && (
-                  <div className="chart-container">
-                    <div className="chart-wrapper">
+                  <div className={`chart-container ${chartLimit > 15 ? 'many-items' : ''}`}>
+                    <div className={`chart-wrapper ${chartLimit > 15 ? 'many-items' : ''}`}>
                       {chartType === 'bar' && <Bar data={chartData} options={chartOptions} />}
                       {chartType === 'pie' && <Pie data={chartData} options={chartOptions} />}
                       {chartType === 'line' && <Line data={chartData} options={chartOptions} />}

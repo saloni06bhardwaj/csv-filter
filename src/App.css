@@ -843,12 +843,13 @@ tbody tr:last-child td {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 24px;
-  min-height: 400px;
+  min-height: 500px;
 }
 
 .chart-wrapper {
-  height: 400px;
+  height: 500px;
   position: relative;
+  width: 100%;
 }
 
 .chart-empty {
@@ -871,6 +872,16 @@ tbody tr:last-child td {
 }
 
 /* Chart responsive adjustments */
+@media (max-width: 1024px) {
+  .chart-wrapper {
+    height: 450px;
+  }
+  
+  .chart-container {
+    min-height: 450px;
+  }
+}
+
 @media (max-width: 768px) {
   .chart-controls {
     grid-template-columns: 1fr;
@@ -881,10 +892,44 @@ tbody tr:last-child td {
   }
 
   .chart-wrapper {
-    height: 300px;
+    height: 400px;
   }
 
   .chart-container {
-    min-height: 300px;
+    min-height: 400px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-wrapper {
+    height: 350px;
+  }
+  
+  .chart-container {
+    min-height: 350px;
+  }
+}
+
+
+/* Chart legend improvements for many items */
+.chart-wrapper canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* Ensure proper spacing for charts with many items */
+.chart-container.many-items {
+  min-height: 600px;
+}
+
+.chart-wrapper.many-items {
+  height: 600px;
+}
+
+/* Better label visibility for bar/line charts with many items */
+@media (min-width: 769px) {
+  .chart-wrapper {
+    min-width: 100%;
   }
 }

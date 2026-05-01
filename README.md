@@ -16,9 +16,11 @@ A modern, feature-rich CSV viewer and analyzer built with React. Upload, filter,
 - **Line Charts** - Display trends and patterns
 - **Column Selection** - Analyze any column from your CSV
 - **Top N Items** - Show 5, 10, 15, or 20 most frequent values
+- **Adaptive Sizing** - Charts automatically adjust for many items
+- **Rotated Labels** - Clear labels even with 20 items
 - **Filter Integration** - Charts respect applied filters
 - **Theme-Aware** - Adapts to light/dark theme
-- **Interactive** - Hover for details, responsive design
+- **Interactive** - Hover for details with percentages, responsive design
 
 ### 🔍 Search & Filter
 - **Global Search** - Search across all columns simultaneously
