@@ -207,9 +207,6 @@ Potential features for future versions:
 
 This project is for educational and demonstration purposes.
 
-## 👨‍💻 Author
-
-Created as part of ConsystemsAI task
 
 ## 🙏 Acknowledgments
 
